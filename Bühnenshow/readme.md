@@ -32,7 +32,7 @@ Nutze Spezialskills, wenn die Aufgabe klar begrenzt ist:
 
 ## Wichtiger ODT-Hinweis
 
-Dialogtexte müssen als echte `.odt`-Dateien erstellt oder bearbeitet werden. Dafür muss zusätzlich der Skill `odt` genutzt werden.
+Dialogtexte müssen als echte `.odt`-Dateien erstellt oder bearbeitet werden. Dafür muss zusätzlich der Skill `odt` genutzt werden. Dieser muss getrennt installiert werden. Quelle: https://www.skills.sh/sungkhum/agent-skills/odt
 
 Markdown reicht nur für Konzepte, Listen, Marketingtexte und Arbeitsnotizen. DOCX wird nicht verwendet.
 
