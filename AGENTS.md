@@ -6,6 +6,7 @@ Archiv zur Veröffentlichung von OpenCode-Skills und -Agenten auf GitHub.
 
 * Bei jedem Start des Projektes mit OpenCode, codebase-memory neu indizieren. 
 * Neue Dateien, sofern sie nicht von .gitignore ausgeschlossen wurde, immer in GIT aufnehmen.
+* Nutze immer CRLF  anstelle LF. Reines Windows Umfeld.
 
 ## Struktur
 
