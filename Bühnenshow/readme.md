@@ -5,6 +5,16 @@ Erstellt: 05.07.2026
 Letzte Änderung: 05.07.2026
 Version: 1.0.0
 
+
+
+## Vorbedingungen
+
+* Verzeichnis ./Puppenprofile muss bestehen
+* Verzeichnis ./Trickarchiv muss bestehen
+* `Puppenprofile/`: Charakter, Sprache, Ausstattung und Einschränkungen einzelner Puppen.
+* `Trickarchiv/`: verfügbare Zauberkunststücke mit Eigenschaften wie Dauer, Requisiten und Einhändigkeit.
+* Skill odt muss installiert sein. https://www.skills.sh/sungkhum/agent-skills/odt
+
 ## Aktivierung
 
 Die Skills liegen projektlokal unter `.opencode/skills/` und gelten für dieses Repository:
