@@ -1,0 +1,41 @@
+{
+  "skill_name": "skills-overview-creator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Dieses Git-Projekt hat noch keine SkillsOverview.md. Erstelle eine aktuelle Übersicht aller projektlokalen, globalen und eingebauten Skills. Frage mich zuerst, wo sie abgelegt werden soll; schlage docs/SkillsOverview.md vor. Formuliere alles passend zum Projekt und verlinke verifizierte skills.sh-Seiten.",
+      "expected_output": "Fragt vor Erstellung nach dem Ziel, erstellt nach Bestätigung eine vollständige projektbezogene Übersicht und staged ausschließlich die neue Datei.",
+      "files": [],
+      "expectations": [
+        "The assistant asks for the target path before creating a missing SkillsOverview.md and proposes docs/SkillsOverview.md.",
+        "The produced overview inventories project, global, and built-in skills with project-specific descriptions and examples.",
+        "Only verified skills.sh pages are linked; unlisted skills remain documented without such a link.",
+        "In a Git repository, only the newly created SkillsOverview.md is added to the Git index and no commit is created."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Aktualisiere die vorhandene docs/SkillsOverview.md vollständig auf die aktuell installierten Skills. Behalte keine veralteten Einträge. Andere Änderungen im Working Tree und im Git-Index gehören mir und dürfen nicht verändert werden.",
+      "expected_output": "Ersetzt die vorhandene Übersicht erst nach vollständiger Inventur und Linkprüfung, ohne sie automatisch zu stagen oder fremde Änderungen anzutasten.",
+      "files": [],
+      "expectations": [
+        "The existing overview is replaced only after discovery, remote checks, generation, and validation complete.",
+        "The final overview contains each discovered skill exactly once while preserving all known scopes and sources.",
+        "The Git index is unchanged and the updated existing overview is not automatically staged.",
+        "No unrelated working-tree file is modified and no temporary artifact remains."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Aktualisiere die bestehende SkillsOverview.md. Während der Prüfung liefert skills.sh für eine bekannte Skill-Seite HTTP 503. Behandle das sicher und erkläre mir das Ergebnis.",
+      "expected_output": "Bricht mit verständlicher Fehlermeldung vor jeder Datei- oder Indexänderung ab; vorhandene Übersicht bleibt unverändert.",
+      "files": [],
+      "expectations": [
+        "A technical skills.sh failure such as HTTP 503 aborts the operation before writing or staging.",
+        "The existing SkillsOverview.md and Git index remain unchanged.",
+        "The response distinguishes technical failure from a normal 404 or 410 unlisted skill.",
+        "No Git rollback command is executed; if prior loss is detected, the assistant only asks the user to restore manually."
+      ]
+    }
+  ]
+}

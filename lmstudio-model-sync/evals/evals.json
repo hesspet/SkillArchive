@@ -1,0 +1,42 @@
+{
+  "skill_name": "lmstudio-model-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Aktualisier mal die Modelle in der Opencode Config mit denen aus LM Studio",
+      "expected_output": "Die models-Liste in provider.lmstudion in ~/.config/opencode/opencode.json wird durch die aktuell in LM Studio geladenen Modelle ersetzt. Embedding-Modelle werden gefiltert.",
+      "expectations": [
+        "Es wurde ein HTTP GET an http://127.0.0.1:1234/v1/models gemacht",
+        "Dem Benutzer wurde eine nummerierte Liste präsentiert",
+        "Der Benutzer konnte Modelle auswählen",
+        "Nur der models-Block in provider.lmstudion wurde ersetzt, der Rest der Config blieb erhalten",
+        "Embedding-Modelle (nomic-embed-text) wurden nicht in die Config übernommen",
+        "Der Benutzer wurde informiert, dass OpenCode neu gestartet werden muss"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Ich hab grad neue Modelle in LM Studio geladen, bitte die Config updaten. Ich will nur das Ornith Modell und das Gemma Modell.",
+      "expected_output": "Die models-Liste wird aktualisiert mit nur den zwei vom Benutzer gewünschten Modellen.",
+      "expectations": [
+        "LM Studio API wurde abgefragt",
+        "Dem Benutzer wurde eine nummerierte Liste gezeigt",
+        "Die Auswahl des Benutzers (Ornith + Gemma) wurde korrekt umgesetzt",
+        "Nur zwei Modelle wurden in die Config geschrieben",
+        "Nur der models-Block wurde verändert",
+        "Der Benutzer hat eine Bestätigung mit der Liste der übernommenen Modelle erhalten"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Welche Modelle hab ich aktuell in LM Studio geladen? Aber schreib noch nichts in die Config, ich will erstmal nur sehen was da ist.",
+      "expected_output": "Eine nummerierte Liste der LM Studio Modelle wird angezeigt, ohne dass die Config verändert wird.",
+      "expectations": [
+        "LM Studio API wurde abgefragt",
+        "Dem Benutzer wurde eine nummerierte Liste präsentiert",
+        "Es wurde KEINE Änderung an der Config-Datei vorgenommen",
+        "Embedding-Modelle wurden als solche gekennzeichnet oder gefiltert"
+      ]
+    }
+  ]
+}
